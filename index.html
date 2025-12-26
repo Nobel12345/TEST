@@ -3,43 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coded Alarm Bell</title>
+    <title>Coded Alarm Bells</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #1a1a1a;
             color: white;
             font-family: monospace;
+            gap: 20px;
         }
         button {
             padding: 20px 40px;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
-            background: #ff4757;
             border: none;
             color: white;
             border-radius: 8px;
-            box-shadow: 0 4px #c0392b;
-            transition: all 0.1s;
+            transition: transform 0.1s;
+            width: 300px;
         }
-        button:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 transparent;
-        }
+        button:active { transform: scale(0.98); }
+        
+        #dingBtn { background: #ff4757; box-shadow: 0 4px #c0392b; }
+        #kitchenBtn { background: #e1b12c; box-shadow: 0 4px #c29924; color: black; }
+        #stopBtn { background: #2f3542; box-shadow: 0 4px #000; }
     </style>
 </head>
 <body>
 
-    <button id="ringBtn">🔔 Ring Alarm</button>
+    <button id="dingBtn">🔔 Single Ding</button>
+    <button id="kitchenBtn">⏰ Kitchen Ring</button>
+    <button id="stopBtn">🛑 Stop Sound</button>
 
     <script type="module">
         import { alarm } from './alarmBell.js';
 
-        document.getElementById('ringBtn').addEventListener('click', () => {
-            alarm.play();
+        document.getElementById('dingBtn').addEventListener('click', () => {
+            alarm.playDing();
+        });
+
+        document.getElementById('kitchenBtn').addEventListener('click', () => {
+            alarm.playKitchenRing();
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', () => {
+            alarm.stop();
         });
     </script>
 </body>
