@@ -1,46 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8-Second Chime</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #0f172a;
-            color: white;
-            font-family: sans-serif;
-        }
-        button {
-            padding: 25px 50px;
-            font-size: 24px;
-            cursor: pointer;
-            background: linear-gradient(135deg, #10b981, #3b82f6); /* Green-Blue gradient */
-            border: none;
-            color: white;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
-            transition: transform 0.2s;
-        }
-        button:active {
-            transform: scale(0.95);
-        }
-    </style>
-</head>
-<body>
+<button onclick="playAlarm('bell')">Ring Bell</button>
+<button onclick="stopAlarm('bell')">Stop Bell</button>
 
-    <button id="ringBtn">🔊 Play 8s Bell</button>
+<button onclick="playAlarm('kitchen')">Start Timer Sound</button>
+<button onclick="stopAlarm('kitchen')">Stop Timer Sound</button>
 
-    <script type="module">
-        // ?v=4 forces the browser to load the new 8-second code
-        import { alarm } from './alarmBell.js?v=4';
-
-        document.getElementById('ringBtn').addEventListener('click', () => {
-            alarm.play();
-        });
-    </script>
-</body>
-</html>
+<button onclick="stopAllAlarms()" style="background: red; color: white;">STOP ALL</button>
