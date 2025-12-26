@@ -3,32 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pleasant Alarm</title>
+    <title>8-Second Chime</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #0f172a; /* Dark Blue-Grey */
+            background-color: #0f172a;
             color: white;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: sans-serif;
         }
         button {
             padding: 25px 50px;
-            font-size: 22px;
-            font-weight: 600;
+            font-size: 24px;
             cursor: pointer;
-            background: linear-gradient(135deg, #6366f1, #a855f7); /* Purple Gradient */
+            background: linear-gradient(135deg, #10b981, #3b82f6); /* Green-Blue gradient */
             border: none;
             color: white;
             border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.6);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            transition: transform 0.2s;
         }
         button:active {
             transform: scale(0.95);
@@ -37,11 +32,11 @@
 </head>
 <body>
 
-    <button id="ringBtn">✨ Play Morning Chime</button>
+    <button id="ringBtn">🔊 Play 8s Bell</button>
 
     <script type="module">
-        // The '?v=3' forces the browser to load the NEW file
-        import { alarm } from './alarmBell.js?v=3';
+        // ?v=4 forces the browser to load the new 8-second code
+        import { alarm } from './alarmBell.js?v=4';
 
         document.getElementById('ringBtn').addEventListener('click', () => {
             alarm.play();
