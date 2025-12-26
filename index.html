@@ -3,55 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coded Alarm Bells</title>
+    <title>Pleasant Alarm</title>
     <style>
         body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #1a1a1a;
+            background-color: #0f172a; /* Dark Blue-Grey */
             color: white;
-            font-family: monospace;
-            gap: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
         }
         button {
-            padding: 20px 40px;
-            font-size: 20px;
+            padding: 25px 50px;
+            font-size: 22px;
+            font-weight: 600;
             cursor: pointer;
+            background: linear-gradient(135deg, #6366f1, #a855f7); /* Purple Gradient */
             border: none;
             color: white;
-            border-radius: 8px;
-            transition: transform 0.1s;
-            width: 300px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        button:active { transform: scale(0.98); }
-        
-        #dingBtn { background: #ff4757; box-shadow: 0 4px #c0392b; }
-        #kitchenBtn { background: #e1b12c; box-shadow: 0 4px #c29924; color: black; }
-        #stopBtn { background: #2f3542; box-shadow: 0 4px #000; }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.6);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body>
 
-    <button id="dingBtn">🔔 Single Ding</button>
-    <button id="kitchenBtn">⏰ Kitchen Ring</button>
-    <button id="stopBtn">🛑 Stop Sound</button>
+    <button id="ringBtn">✨ Play Morning Chime</button>
 
     <script type="module">
-        import { alarm } from './alarmBell.js';
+        // The '?v=3' forces the browser to load the NEW file
+        import { alarm } from './alarmBell.js?v=3';
 
-        document.getElementById('dingBtn').addEventListener('click', () => {
-            alarm.playDing();
-        });
-
-        document.getElementById('kitchenBtn').addEventListener('click', () => {
-            alarm.playKitchenRing();
-        });
-
-        document.getElementById('stopBtn').addEventListener('click', () => {
-            alarm.stop();
+        document.getElementById('ringBtn').addEventListener('click', () => {
+            alarm.play();
         });
     </script>
 </body>
